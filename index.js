@@ -20,10 +20,10 @@ function renderleads(){
    //listitems += "<li><a href= '#' target='_blank'>" + arr[i] + "</a></li>"
    // Using template strings
    listitems += `
-      <li>
-        <a href = ' ${arr[i]} ' target='_blank'> ${arr[i]} <\a>
-      <\li>
-      `
+   <li>
+    <a href='${arr[i]}' target='_blank' rel = 'noreference noopener'>${arr[i]}</a>
+  </li>
+  `
   }
   ulel.innerHTML=listitems
 
