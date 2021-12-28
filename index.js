@@ -15,5 +15,12 @@ let saveinputbtn=document.getElementById("input-btn")
 // }
 //We don't want our text to be plain. We want it to be in the form of list.
 for(let i=0;i<arr.length;i++){
-  ulel.innerHTML += "<li>" +  arr[i] + "</li>"
+  //ulel.innerHTML += "<li>" + arr[i] + "</li>"
+  //Using alternative way
+  //Create element
+  //set textContent
+  //append textContent to ul
+  let z=document.createElement("li")
+  z.textContent=arr[i]
+  ulel.append(z)
 }
