@@ -16,8 +16,14 @@ function renderleads(){
     // let x=arr[i]
     // let atag=documnet.createElement('a');
     // let linktext=atag.setattribute('href',x)
-   listitems += "<li><a href= '"+ arr[i] + "' target='_blank'>" + arr[i] +  "</a></li>"
+   //listitems += "<li><a href= '"+ arr[i] + "' target='_blank'>" + arr[i] +  "</a></li>"
    //listitems += "<li><a href= '#' target='_blank'>" + arr[i] + "</a></li>"
+   // Using template strings
+   listitems += `
+      <li>
+        <a href = ' ${arr[i]} ' target='_blank'> ${arr[i]} <\a>
+      <\li>
+      `
   }
   ulel.innerHTML=listitems
 
