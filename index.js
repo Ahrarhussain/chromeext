@@ -13,9 +13,12 @@ saveinputbtn.addEventListener("click",function(){
 function renderleads(){
   let listitems= " "
   for(let i=0;i<arr.length;i++){
-    listitems += "<li>" + arr[i] +  "</li>"
-    console.log(listitems)
+    // let x=arr[i]
+    // let atag=documnet.createElement('a');
+    // let linktext=atag.setattribute('href',x)
+   listitems += "<li><a href= '"+ arr[i] + "' target='_blank'>" + arr[i] +  "</a></li>"
+   //listitems += "<li><a href= '#' target='_blank'>" + arr[i] + "</a></li>"
   }
-   ulel.innerHTML= listitems
+  ulel.innerHTML=listitems
 
 }
