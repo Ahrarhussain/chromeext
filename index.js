@@ -7,6 +7,7 @@ let saveinputbtn=document.getElementById("input-btn")
 saveinputbtn.addEventListener("click",function(){
   arr.push(input.value)
   renderleads()
+  document.getElementById("input-el").value=''
 })
 function renderleads(){
   let listitems= " "
