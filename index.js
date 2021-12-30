@@ -7,10 +7,6 @@ let savetabbtn=document.getElementById("savetab-btn")
 let deletebtn=document.getElementById("delete-btn")
 
 
-function inputvanish(){
-  input.value=''
-}
-
 //to getelementfromstorage
 //Rendering Data from localStorage if there is any data
 //const because it won't be reassigned below.
@@ -41,17 +37,19 @@ function render(lead){
 }
 
 
-const tab = [
-  {url:"https://no.linkedin.com/in/per-harald-borgen"}
-]
-
-
 //SAVE TAB BUTTOn
+//Not hardcoded anymore
 savetabbtn.addEventListener("click",function(){
-  arr.push(tab[0].url)
-  localStorage.setItem("tabskey",JSON.stringify(arr))
-  render(arr)
-  console.log(JSON.parse(localStorage.getItem("tabskey")))
+
+  // To capture the current tab url
+  chrome.tabs.query({active:true, currentWindow:true},function(tabs){
+    arr.push(tabs[0].url)
+    localStorage.setItem("tabskey",JSON.stringify(arr))
+    render(arr)
+    console.log(JSON.parse(localStorage.getItem("tabskey")))
+  }
+)
+  
 }
 )
 
@@ -84,6 +82,6 @@ saveinputbtn.addEventListener("click",function(){
 
   // To get input field as blank after typing
   //document.getElementById("input-el").value=''
-  inputvanish()
+  input.value=''
   console.log(localStorage.getItem("myleads_key"))
 })
