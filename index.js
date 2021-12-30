@@ -1,10 +1,10 @@
 
 let arr=[]
-let input=document.getElementById("input-el")
-let ulel=document.getElementById("unordered-el")
-let saveinputbtn=document.getElementById("input-btn")
-let savetabbtn=document.getElementById("savetab-btn")
-let deletebtn=document.getElementById("delete-btn")
+const input=document.getElementById("input-el")
+const ulel=document.getElementById("unordered-el")
+const saveinputbtn=document.getElementById("input-btn")
+const savetabbtn=document.getElementById("savetab-btn")
+const deletebtn=document.getElementById("delete-btn")
 
 
 //to getelementfromstorage
@@ -44,12 +44,12 @@ savetabbtn.addEventListener("click",function(){
   // To capture the current tab url
   chrome.tabs.query({active:true, currentWindow:true},function(tabs){
     arr.push(tabs[0].url)
-    localStorage.setItem("tabskey",JSON.stringify(arr))
+    localStorage.setItem("myleads_key",JSON.stringify(arr))
     render(arr)
-    console.log(JSON.parse(localStorage.getItem("tabskey")))
+    console.log(JSON.parse(localStorage.getItem("myleads_key")))
   }
 )
-  
+
 }
 )
 
