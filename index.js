@@ -3,14 +3,30 @@ let arr=[]
 let input=document.getElementById("input-el")
 let ulel=document.getElementById("unordered-el")
 let saveinputbtn=document.getElementById("input-btn")
+let deletebtn=document.getElementById("delete-btn")
+
 
 //to getelementfromstorage
 //Rendering Data from localStorage if there is any data
-let leadsfromstorage=JSON.parse(localStorage.getItem("myleads_key"))
+//const because it won't be reassigned below.
+const leadsfromstorage=JSON.parse(localStorage.getItem("myleads_key"))
 if(leadsfromstorage){
     arr=leadsfromstorage
     renderleads()
 }
+
+
+//DELETE ALL FUNCTION
+deletebtn.addEventListener("dblclick",function(){
+  localStorage.clear()
+  arr=[]
+  //ulel.textContent=""
+  //Better way to clear DOM is
+  renderleads()  //because now arr is empty.
+}
+)
+
+
 
 saveinputbtn.addEventListener("click",function(){
   arr.push(input.value)

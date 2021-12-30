@@ -10,14 +10,18 @@ input{
   padding:10px;
   box-sizing:border-box;
   margin-bottom:4px;
-  border:1px solid #5f9341
+  border:1px solid #5f9341;
 }
 button{
   padding:10px,20px;
   background:#5f9341;
-  border:none;
+  border:1px solid #5f9341;  /* because we want a border in DElete all button*/
   color:white;
   font-weight:bold;
+}
+#delete-btn{
+  background: white;
+  color:#5f9341;
 }
 ul{
   color: #5f9341;
