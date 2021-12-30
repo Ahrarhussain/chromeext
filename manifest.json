@@ -1,7 +1,11 @@
 {
   "manifest_version" : 3,
-  "version" : "1",
-  "name" : "Leads Tracker",
+  "version" : "1.1",
+  "name" : "Lead Tracker",
+  "description" : "Stores all leads in one place.",
+  "developer" : {
+    "name" : "Ahrar Hussain"
+  },
   "action" : {
       "default_popup" : "index.html",
       "default_icon" : "icon.png"
