@@ -4,11 +4,17 @@ let input=document.getElementById("input-el")
 let ulel=document.getElementById("unordered-el")
 let saveinputbtn=document.getElementById("input-btn")
 
+
 saveinputbtn.addEventListener("click",function(){
   arr.push(input.value)
   renderleads()
+  input.value=JSON.stringify(input.value)
+  localStorage.myleads_key=input.value
+  // To get input field as blank after typing
   //document.getElementById("input-el").value=''
+  let x=input.value
   input.value=''
+  console.log(localStorage.getItem("myleads_key"))
 })
 function renderleads(){
   let listitems= " "

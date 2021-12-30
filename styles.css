@@ -3,6 +3,7 @@ body{
   padding:10px;
   font-family:Arial,Helvetica,sans-serif;
   background:clear;
+  min-width: 400px;
 }
 input{
   width:100%;
