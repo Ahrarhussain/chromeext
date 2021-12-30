@@ -3,8 +3,13 @@ let arr=[]
 let input=document.getElementById("input-el")
 let ulel=document.getElementById("unordered-el")
 let saveinputbtn=document.getElementById("input-btn")
+let savetabbtn=document.getElementById("savetab-btn")
 let deletebtn=document.getElementById("delete-btn")
 
+
+function inputvanish(){
+  input.value=''
+}
 
 //to getelementfromstorage
 //Rendering Data from localStorage if there is any data
@@ -12,8 +17,43 @@ let deletebtn=document.getElementById("delete-btn")
 const leadsfromstorage=JSON.parse(localStorage.getItem("myleads_key"))
 if(leadsfromstorage){
     arr=leadsfromstorage
-    renderleads()
+    render(arr)
 }
+
+
+function render(lead){
+  let listitems= " "
+  for(let i=0;i<lead.length;i++){
+    // let x=arr[i]
+    // let atag=documnet.createElement('a');
+    // let linktext=atag.setattribute('href',x)
+   //listitems += "<li><a href= '"+ arr[i] + "' target='_blank'>" + arr[i] +  "</a></li>"
+   //listitems += "<li><a href= '#' target='_blank'>" + arr[i] + "</a></li>"
+   // Using template strings
+   listitems += `
+   <li>
+    <a href='${lead[i]}' target='_blank' rel = 'noreference noopener'>${lead[i]}</a>
+  </li>
+  `
+  }
+  ulel.innerHTML=listitems
+
+}
+
+
+const tab = [
+  {url:"https://no.linkedin.com/in/per-harald-borgen"}
+]
+
+
+//SAVE TAB BUTTOn
+savetabbtn.addEventListener("click",function(){
+  arr.push(tab[0].url)
+  localStorage.setItem("tabskey",JSON.stringify(arr))
+  render(arr)
+  console.log(JSON.parse(localStorage.getItem("tabskey")))
+}
+)
 
 
 //DELETE ALL FUNCTION
@@ -22,7 +62,7 @@ deletebtn.addEventListener("dblclick",function(){
   arr=[]
   //ulel.textContent=""
   //Better way to clear DOM is
-  renderleads()  //because now arr is empty.
+  render(arr)  //because now arr is empty.
 }
 )
 
@@ -30,7 +70,7 @@ deletebtn.addEventListener("dblclick",function(){
 
 saveinputbtn.addEventListener("click",function(){
   arr.push(input.value)
-  renderleads()
+  render(arr)
   //Inefficient way to store in localStorage
   // arr=JSON.stringify(arr)
   // localStorage.myleads_key=arr
@@ -44,25 +84,6 @@ saveinputbtn.addEventListener("click",function(){
 
   // To get input field as blank after typing
   //document.getElementById("input-el").value=''
-  let x=input.value
-  input.value=''
+  inputvanish()
   console.log(localStorage.getItem("myleads_key"))
 })
-function renderleads(){
-  let listitems= " "
-  for(let i=0;i<arr.length;i++){
-    // let x=arr[i]
-    // let atag=documnet.createElement('a');
-    // let linktext=atag.setattribute('href',x)
-   //listitems += "<li><a href= '"+ arr[i] + "' target='_blank'>" + arr[i] +  "</a></li>"
-   //listitems += "<li><a href= '#' target='_blank'>" + arr[i] + "</a></li>"
-   // Using template strings
-   listitems += `
-   <li>
-    <a href='${arr[i]}' target='_blank' rel = 'noreference noopener'>${arr[i]}</a>
-  </li>
-  `
-  }
-  ulel.innerHTML=listitems
-
-}
