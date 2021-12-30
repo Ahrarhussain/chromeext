@@ -4,6 +4,13 @@ let input=document.getElementById("input-el")
 let ulel=document.getElementById("unordered-el")
 let saveinputbtn=document.getElementById("input-btn")
 
+//to getelementfromstorage
+//Rendering Data from localStorage if there is any data
+let leadsfromstorage=JSON.parse(localStorage.getItem("myleads_key"))
+if(leadsfromstorage){
+    arr=leadsfromstorage
+    renderleads()
+}
 
 saveinputbtn.addEventListener("click",function(){
   arr.push(input.value)
